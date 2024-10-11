@@ -1,5 +1,3 @@
-# bio_files_processor.py
-
 import argparse
 import os
 from typing import List, Dict, Optional
