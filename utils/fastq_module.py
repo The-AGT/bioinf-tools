@@ -1,5 +1,3 @@
-# fastq_module.py
-
 from typing import Tuple, Generator
 import os
 
