@@ -163,4 +163,5 @@ bioinf-utils/
 
 ## Screenshots
 Here is a screenshot of test results:
+![HW4 Flake8 Screenshot](https://github.com/The-AGT/bioinf-tools/blob/bioinf_tools_v2/utils/screenshots/HW4_flake8.png)
 ```
