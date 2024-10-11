@@ -1,5 +1,3 @@
-# main_script.py
-
 from typing import List, Union
 from utils.helpers import (
     is_valid_sequence, transcribe, reverse,
