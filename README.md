@@ -62,7 +62,9 @@ Install Dependencies
 pip install -r requirements.txt
 ```
 
-Usage
+## <p align="center" style="color:#007acc;">Usage</p>
+
+---
 
 1. Sequence Operations (run)
 
@@ -81,27 +83,56 @@ result = run_sequence_operation("dna", sequences, operation)
 print(result)
 ```
 
-Available Operations
+### <p align="center" style="color:#007acc;">Available Operations</p>
 
-For DNA sequences:
-	•	reverse — Reverses the sequence.
-	•	complement — Returns the complementary sequence.
-	•	reverse_complement — Returns the reverse complement.
-	•	transcribe — Transcribes DNA to RNA.
+---
 
-For RNA sequences:
-	•	reverse — Reverses the sequence.
-	•	complement — Returns the complementary sequence.
-	•	reverse_complement — Returns the reverse complement.
+#### <p align="center" style="color:#009900;">DNA Sequences</p>
 
-For protein sequences:
-	•	reverse — Reverses the sequence.
-	•	amino_acid_composition — Returns the amino acid composition.
-	•	hydrophobicity_score — Calculates the hydrophobicity score.
+<p align="center">
+
+| **Operation**            | **Description**                                      |
+|-------------------------|------------------------------------------------------|
+| `reverse`               | Reverses the sequence.                               |
+| `complement`            | Returns the complementary sequence.                  |
+| `reverse_complement`    | Returns the reverse complement.                      |
+| `transcribe`            | Transcribes DNA to RNA.                              |
+
+</p>
+
+---
+
+#### <p align="center" style="color:#ff6600;">RNA Sequences</p>
+
+<p align="center">
+
+| **Operation**            | **Description**                                      |
+|-------------------------|------------------------------------------------------|
+| `reverse`               | Reverses the sequence.                               |
+| `complement`            | Returns the complementary sequence.                  |
+| `reverse_complement`    | Returns the reverse complement.                      |
+
+</p>
+
+---
+
+#### <p align="center" style="color:#cc0000;">Protein Sequences</p>
+
+<p align="center">
+
+| **Operation**            | **Description**                                      |
+|-------------------------|------------------------------------------------------|
+| `reverse`               | Reverses the sequence.                               |
+| `amino_acid_composition` | Returns the amino acid composition.                 |
+| `hydrophobicity_score`  | Calculates the hydrophobicity score.                 |
+
+</p>
 
 Command-Line Usage
 
+```bash
 python main_script.py run dna ATGC CGTGA reverse_complement
+```
 
 ---
 
