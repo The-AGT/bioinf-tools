@@ -96,6 +96,8 @@ Returns the reverse complement.
 	•	gc_content
 Calculates the GC content.
 
+---
+
 2. FASTQ Filtering
 
 FASTQ filtering functionality is integrated into main_script.py via the
@@ -112,6 +114,8 @@ python main_script.py filter data/input.fastq filtered_output.fastq \
 If the output_fastq argument is omitted, the tool returns a dictionary of
 filtered records instead of writing to a file.
 
+---
+
 3. bio_files_processor.py
 
 The bio_files_processor.py script provides utilities for converting and
@@ -119,11 +123,31 @@ processing bioinformatics file formats such as FASTA, BLAST, and GBK.
 
 Key Functions
 
-| Command | Description | Usage |
-|---------|------------|-------|
-| `convert_multiline_fasta_to_oneline` | Converts multiline FASTA sequences to single-line. | `python bio_files_processor.py convert_fasta input.fasta --output_fasta output.fasta` |
-| `parse_blast_output` | Extracts descriptions from BLAST output. | `python bio_files_processor.py parse_blast input_blast.txt output_descriptions.txt` |
-| `select_genes_from_gbk_to_fasta` | Extracts genes from GBK and writes to FASTA. | `python bio_files_processor.py select_genes input.gbk geneA geneB --n_before 1 --n_after 1 --output_fasta output.fasta` |
+| Command | Description |
+|---------|------------|
+| `convert_multiline_fasta_to_oneline` | Converts multiline FASTA sequences to single-line. |
+| `parse_blast_output` | Extracts descriptions from BLAST output. |
+| `select_genes_from_gbk_to_fasta` | Extracts genes from GBK and writes to FASTA. |
+
+#### Usage Examples:
+
+#####  `convert_multiline_fasta_to_oneline`
+
+```bash
+python bio_files_processor.py convert_fasta input.fasta --output_fasta output.fasta
+```
+#####  parse_blast_output
+
+```bash
+python bio_files_processor.py parse_blast input_blast.txt output_descriptions.txt
+```
+#####  select_genes_from_gbk_to_fasta
+
+```bash
+python bio_files_processor.py select_genes input.gbk geneA geneB --n_before 1 --n_after 1 --output_fasta output.fasta
+```
+
+---
 
 4. filter_fastq (Legacy)
 
@@ -148,6 +172,8 @@ quality_threshold = 30
 filtered_seqs = filter_fastq(seqs, gc_bounds, length_bounds, quality_threshold)
 print(filtered_seqs)
 ```
+
+---
 
 Project Structure
 ```bash
