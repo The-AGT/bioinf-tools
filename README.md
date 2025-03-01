@@ -1,29 +1,26 @@
-# <span style="color:#0056b3;">Bioinformatics Utilities</span>
+# <span style="color:#0056b3;">Bioinformatics Utilities</span> 
 
 [![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://github.com/The-AGT/bioinf-utils)
 [![Flake8 Compliance](https://img.shields.io/badge/flake8-compliant-brightgreen.svg)](https://flake8.pycqa.org)
 [![Python Version](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://www.python.org/)
+[![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 
 ---
 <p align="center">
   <img src="https://img.shields.io/badge/Bioinformatics-Utilities-blue?style=for-the-badge&logo=dna" alt="Bioinformatics Utilities">
 </p>
+
 ---
 
-## Overview
+## Overview  
+**Bioinformatics Utilities** is a **powerful and modular toolkit** for modern bioinformatics workflows.  
+It includes utilities for **DNA/RNA sequence analysis, FASTQ filtering, and bioinformatics file processing**.
 
-**Bioinformatics Utilities** is a comprehensive toolkit designed for modern  
-bioinformatics workflows. It provides utilities for:
-
-- **DNA/RNA Sequence Processing:**  
-  Transcription, complementarity, reversal, and GC content calculation.
-- **FASTQ Filtering:**  
-  Filter FASTQ files based on GC content, sequence length, and quality.
-- **Bioinformatics File Processing:**  
-  Conversion and processing of FASTA, BLAST, and GBK file formats.
-
-Leveraging industry-standard libraries such as Biopython, this toolkit  
-ensures reliability and performance for both research and production environments.
+### Features  
+✔️ **DNA/RNA Sequence Processing** – Transcription, complementarity, reversal, and GC content.  
+✔️ **FASTQ Filtering** – Filter FASTQ sequences by GC content, length, and quality.  
+✔️ **File Format Support** – FASTA, BLAST, and GBK file processing.  
+✔️ **Optimized Performance** – Uses Biopython for high-speed computations.  
 
 ---
 
@@ -128,27 +125,27 @@ Converts a FASTA file with multiline sequences into one with single-line
 sequences.
 Usage:
 
-```bash
-python bio_files_processor.py convert_fasta input.fasta --output_fasta output.fasta
-```
+	```bash
+	python bio_files_processor.py convert_fasta input.fasta --output_fasta output.fasta
+	```
 
 	b.	parse_blast_output
 Parses a BLAST output file and extracts descriptions of the best matches.
 Usage:
 
-```bash
-python bio_files_processor.py parse_blast input_blast.txt output_descriptions.txt
-```
+	```bash
+	python bio_files_processor.py parse_blast input_blast.txt output_descriptions.txt
+	```
 
 	c.	select_genes_from_gbk_to_fasta
 Extracts protein sequences from a GBK file for specified genes and their
 neighbors, and writes them to a FASTA file.
 Usage:
 
-```bash
-python bio_files_processor.py select_genes input.gbk geneA geneB \
---n_before 1 --n_after 1 --output_fasta output.fasta
-```
+	```bash
+	python bio_files_processor.py select_genes input.gbk geneA geneB \
+	--n_before 1 --n_after 1 --output_fasta output.fasta
+	```
 
 4. filter_fastq (Legacy)
 
@@ -196,7 +193,12 @@ request for any improvements or bug fixes.
 For major changes, please open an issue first to discuss what you would like
 to change.
 
-	“In the middle of difficulty lies opportunity.”
-— Albert Einstein
+<p align="center">
+  <img src="https://img.shields.io/badge/Quote-Einstein-blue?style=flat-square">
+</p>
+
+<p align="center"><em>“In the middle of difficulty lies opportunity.”</em></p>
+
+<p align="center">— <strong>Albert Einstein</strong></p>
 
 Enjoy using Bioinformatics Utilities and feel free to contribute to the project!
