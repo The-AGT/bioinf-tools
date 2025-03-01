@@ -27,14 +27,11 @@ It includes utilities for **DNA/RNA sequence analysis, FASTQ filtering, and bioi
 
 - [Installation](#installation)
 - [Usage](#usage)
-  - [1. run_dna_rna_tools](#1-run_dna_rna_tools)
-  - [2. FASTQ Filtering](#2-fastq-filtering)
+  - [1. Sequence Operations (run)](#1-sequence-operations-run)
+  - [2. FASTQ Filtering (filter)](#2-fastq-filtering-filter)
   - [3. bio_files_processor.py](#3-bio_files_processorpy)
-  - [4. filter_fastq (legacy)](#4-filter_fastq-legacy)
 - [Project Structure](#project-structure)
-- [Screenshots](#screenshots)
 - [Contributing](#contributing)
-- [License](#license)
 
 ---
 
@@ -67,42 +64,51 @@ pip install -r requirements.txt
 
 Usage
 
-1. run_dna_rna_tools
+1. Sequence Operations (run)
 
-The run_dna_rna_tools function (located in main_script.py)
-allows you to perform operations on DNA/RNA sequences such as transcription,
-reversal, complementarity, and GC content calculation.
+The run subcommand in main_script.py enables you to perform various
+operations on DNA/RNA sequences such as transcription, reversal, complementarity,
+and GC content calculation.
 
-Example Usage
+Example Usage (Python API)
 
 ```python
-from main_script import run_dna_rna_tools
+from main_script import run_sequence_operation
 
 sequences = ["ATGC", "CGTGA"]
-procedure = "reverse_complement"
-result = run_dna_rna_tools(*sequences, procedure)
+operation = "reverse_complement"
+result = run_sequence_operation("dna", sequences, operation)
 print(result)
 ```
 
-Available Procedures
-	•	transcribe
-Transcribes DNA into RNA (T → U).
-	•	reverse
-Reverses the sequence.
-	•	complement
-Returns the complementary sequence.
-	•	reverse_complement
-Returns the reverse complement.
-	•	gc_content
-Calculates the GC content.
+Available Operations
+
+For DNA sequences:
+	•	reverse — Reverses the sequence.
+	•	complement — Returns the complementary sequence.
+	•	reverse_complement — Returns the reverse complement.
+	•	transcribe — Transcribes DNA to RNA.
+
+For RNA sequences:
+	•	reverse — Reverses the sequence.
+	•	complement — Returns the complementary sequence.
+	•	reverse_complement — Returns the reverse complement.
+
+For protein sequences:
+	•	reverse — Reverses the sequence.
+	•	amino_acid_composition — Returns the amino acid composition.
+	•	hydrophobicity_score — Calculates the hydrophobicity score.
+
+Command-Line Usage
+
+python main_script.py run dna ATGC CGTGA reverse_complement
 
 ---
 
-2. FASTQ Filtering
+2. FASTQ Filtering (filter)
 
-FASTQ filtering functionality is integrated into main_script.py via the
-filter subcommand. This tool filters FASTQ sequences based on GC content,
-sequence length, and quality.
+The filter subcommand in main_script.py filters FASTQ sequences
+based on GC content, sequence length, and average quality.
 
 Command-Line Usage
 
@@ -123,11 +129,15 @@ processing bioinformatics file formats such as FASTA, BLAST, and GBK.
 
 Key Functions
 
-| Command | Description |
-|---------|------------|
-| `convert_multiline_fasta_to_oneline` | Converts multiline FASTA sequences to single-line. |
-| `parse_blast_output` | Extracts descriptions from BLAST output. |
-| `select_genes_from_gbk_to_fasta` | Extracts genes from GBK and writes to FASTA. |
+<p align="center">
+  
+| Command                          | Description                                      |
+|-----------------------------------|--------------------------------------------------|
+| **`convert_multiline_fasta_to_oneline`** | Converts multiline FASTA sequences to single-line. |
+| **`parse_blast_output`**              | Extracts descriptions from BLAST output.        |
+| **`select_genes_from_gbk_to_fasta`**  | Extracts genes from GBK and writes to FASTA.    |
+
+</p>
 
 #### Usage Examples:
 
@@ -145,32 +155,6 @@ python bio_files_processor.py parse_blast input_blast.txt output_descriptions.tx
 
 ```bash
 python bio_files_processor.py select_genes input.gbk geneA geneB --n_before 1 --n_after 1 --output_fasta output.fasta
-```
-
----
-
-4. filter_fastq (Legacy)
-
-For users preferring a dictionary of sequences over a FASTQ file, the
-legacy filter_fastq function is available. It operates on a dictionary
-where each key is a sequence name and the value is a tuple
-(sequence, quality, extra_info).
-
-Example Usage
-
-```python
-from main_script import filter_fastq
-
-seqs = {
-    "seq1": ("ATGC", "IIII", "extra_info1"),
-    "seq2": ("CGTGA", "HHHHH", "extra_info2")
-}
-gc_bounds = (40, 60)
-length_bounds = (4, 10)
-quality_threshold = 30
-
-filtered_seqs = filter_fastq(seqs, gc_bounds, length_bounds, quality_threshold)
-print(filtered_seqs)
 ```
 
 ---
