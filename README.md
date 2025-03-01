@@ -4,12 +4,12 @@
 [![Flake8 Compliance](https://img.shields.io/badge/flake8-compliant-brightgreen.svg)](https://flake8.pycqa.org)
 [![Python Version](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://www.python.org/)
 
----
+----------------------------------------------------------------
 <p align="center">
   <img src="https://img.shields.io/badge/Bioinformatics-Utilities-blue?style=for-the-badge&logo=dna" alt="Bioinformatics Utilities">
 </p>
 
----
+----------------------------------------------------------------
 
 ## Overview  
 **Bioinformatics Utilities** is a **powerful and modular toolkit** for modern bioinformatics workflows.  
@@ -21,7 +21,7 @@ It includes utilities for **DNA/RNA sequence analysis, FASTQ filtering, and bioi
 ✔️ **File Format Support** – FASTA, BLAST, and GBK file processing.  
 ✔️ **Optimized Performance** – Uses Biopython for high-speed computations.  
 
----
+----------------------------------------------------------------
 
 ## Table of Contents
 
@@ -33,7 +33,7 @@ It includes utilities for **DNA/RNA sequence analysis, FASTQ filtering, and bioi
 - [Project Structure](#project-structure)
 - [Contributing](#contributing)
 
----
+----------------------------------------------------------------
 
 ## Installation
 
@@ -64,9 +64,9 @@ pip install -r requirements.txt
 
 ## <p align="center" style="color:#007acc;">Usage</p>
 
----
+----------------------------------------------------------------
 
-1. Sequence Operations (run)
+1. <p align="center" style="color:#007acc;">Sequence Operations (run)</p>
 
 The run subcommand in main_script.py enables you to perform various
 operations on DNA/RNA sequences such as transcription, reversal, complementarity,
@@ -83,11 +83,11 @@ result = run_sequence_operation("dna", sequences, operation)
 print(result)
 ```
 
-### <p align="center" style="color:#007acc;">Available Operations</p>
+<p align="center">Available Operations</p>
 
 ---
 
-#### <p align="center" style="color:#009900;">DNA Sequences</p>
+<p align="center">DNA Sequences</p>
 
 <p align="center">
 
@@ -102,7 +102,7 @@ print(result)
 
 ---
 
-#### <p align="center" style="color:#ff6600;">RNA Sequences</p>
+<p align="center">RNA Sequences</p>
 
 <p align="center">
 
@@ -116,7 +116,7 @@ print(result)
 
 ---
 
-#### <p align="center" style="color:#cc0000;">Protein Sequences</p>
+<p align="center">Protein Sequences</p>
 
 <p align="center">
 
@@ -134,9 +134,9 @@ Command-Line Usage
 python main_script.py run dna ATGC CGTGA reverse_complement
 ```
 
----
+----------------------------------------------------------------
 
-2. FASTQ Filtering (filter)
+2. <p align="center" style="color:#007acc;">FASTQ Filtering (filter)</p>
 
 The filter subcommand in main_script.py filters FASTQ sequences
 based on GC content, sequence length, and average quality.
@@ -151,9 +151,9 @@ python main_script.py filter data/input.fastq filtered_output.fastq \
 If the output_fastq argument is omitted, the tool returns a dictionary of
 filtered records instead of writing to a file.
 
----
+----------------------------------------------------------------
 
-3. bio_files_processor.py
+3. <p align="center" style="color:#007acc;">bio_files_processor.py</p>
 
 The bio_files_processor.py script provides utilities for converting and
 processing bioinformatics file formats such as FASTA, BLAST, and GBK.
@@ -188,7 +188,7 @@ python bio_files_processor.py parse_blast input_blast.txt output_descriptions.tx
 python bio_files_processor.py select_genes input.gbk geneA geneB --n_before 1 --n_after 1 --output_fasta output.fasta
 ```
 
----
+----------------------------------------------------------------
 
 Project Structure
 ```bash
@@ -203,6 +203,8 @@ bioinf-utils/
     ├── fastq_filtrator_test.py
     └── example_data.py
 ```
+
+----------------------------------------------------------------
 
 Contributing
 
