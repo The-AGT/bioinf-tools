@@ -5,12 +5,9 @@
 [![Python Version](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://www.python.org/)
 
 ---
-
 <p align="center">
-  <img src="https://via.placeholder.com/600x200?text=Bioinformatics+Utilities" 
-       alt="Bioinformatics Utilities" width="600">
+  <img src="https://img.shields.io/badge/Bioinformatics-Utilities-blue?style=for-the-badge&logo=dna" alt="Bioinformatics Utilities">
 </p>
-
 ---
 
 ## Overview
@@ -125,7 +122,8 @@ The bio_files_processor.py script provides utilities for converting and
 processing bioinformatics file formats such as FASTA, BLAST, and GBK.
 
 Key Functions
-	1.	convert_multiline_fasta_to_oneline
+
+	a.	convert_multiline_fasta_to_oneline
 Converts a FASTA file with multiline sequences into one with single-line
 sequences.
 Usage:
@@ -134,14 +132,15 @@ Usage:
 python bio_files_processor.py convert_fasta input.fasta --output_fasta output.fasta
 ```
 
-	2.	parse_blast_output
+	b.	parse_blast_output
 Parses a BLAST output file and extracts descriptions of the best matches.
 Usage:
 
+```bash
 python bio_files_processor.py parse_blast input_blast.txt output_descriptions.txt
+```
 
-
-	3.	select_genes_from_gbk_to_fasta
+	c.	select_genes_from_gbk_to_fasta
 Extracts protein sequences from a GBK file for specified genes and their
 neighbors, and writes them to a FASTA file.
 Usage:
@@ -176,7 +175,7 @@ print(filtered_seqs)
 ```
 
 Project Structure
-
+```bash
 bioinf-utils/
 ├── README.md
 ├── main_script.py
@@ -187,14 +186,7 @@ bioinf-utils/
     ├── dna_rna_tools_test.py
     ├── fastq_filtrator_test.py
     └── example_data.py
-
-Screenshots
-
-<p align="center">
-  <img src="https://via.placeholder.com/600x200?text=Flake8+Test+Results" 
-       alt="Flake8 Test Results" width="600">
-</p>
-
+```
 
 Contributing
 
