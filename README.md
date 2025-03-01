@@ -1,5 +1,3 @@
-# <span style="color:#0056b3;">Bioinformatics Utilities</span> 
-
 [![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://github.com/The-AGT/bioinf-utils)
 [![Flake8 Compliance](https://img.shields.io/badge/flake8-compliant-brightgreen.svg)](https://flake8.pycqa.org)
 [![Python Version](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://www.python.org/)
@@ -11,31 +9,33 @@
 
 ----------------------------------------------------------------
 
-## Overview  
+## <p align="center"> Overview </p>
+
 **Bioinformatics Utilities** is a **powerful and modular toolkit** for modern bioinformatics workflows.  
 It includes utilities for **DNA/RNA sequence analysis, FASTQ filtering, and bioinformatics file processing**.
 
-### Features  
-✔️ **DNA/RNA Sequence Processing** – Transcription, complementarity, reversal, and GC content.  
-✔️ **FASTQ Filtering** – Filter FASTQ sequences by GC content, length, and quality.  
-✔️ **File Format Support** – FASTA, BLAST, and GBK file processing.  
-✔️ **Optimized Performance** – Uses Biopython for high-speed computations.  
+<h4 align="center">━━━━━━━━━ Features ━━━━━━━━━</h4>
+
+ **DNA/RNA Sequence Processing** – transcription, complementarity, reversal, and GC content.  
+ **FASTQ Filtering** – filter FASTQ sequences by GC content, length, and quality.  
+ **File Format Support** – FASTA, BLAST, and GBK file processing.  
+ **Optimized Performance** – uses Biopython for high-speed computations.  
 
 ----------------------------------------------------------------
 
-## Table of Contents
+## <p align="center"> Table of Contents </p>
 
-- [Installation](#installation)
+- [Installation](##Installation)
 - [Usage](#usage)
   - [1. Sequence Operations (run)](#1-sequence-operations-run)
   - [2. FASTQ Filtering (filter)](#2-fastq-filtering-filter)
   - [3. bio_files_processor.py](#3-bio_files_processorpy)
 - [Project Structure](#project-structure)
-- [Contributing](#contributing)
+- [Contributing](#Contributing)
 
 ----------------------------------------------------------------
 
-## Installation
+## <h3 align="center"> Installation </h3>
 
 ### Clone the Repository
 
@@ -61,12 +61,11 @@ Install Dependencies
 ```bash
 pip install -r requirements.txt
 ```
-
-## <p align="center" style="color:#007acc;">Usage</p>
-
 ----------------------------------------------------------------
 
-1. <p align="center" style="color:#007acc;">Sequence Operations (run)</p>
+## <p align="center"> Usage </p>
+
+<h3 align="center"> 1. Sequence Operations </h3>
 
 The run subcommand in main_script.py enables you to perform various
 operations on DNA/RNA sequences such as transcription, reversal, complementarity,
@@ -83,14 +82,12 @@ result = run_sequence_operation("dna", sequences, operation)
 print(result)
 ```
 
-<p align="center">Available Operations</p>
-
----
+<h4 align="center">━━━━━━━━━ Available Operations ━━━━━━━━━</h4>
 
 <p align="center">DNA Sequences</p>
 
-<p align="center">
-
+<div align="center">
+  
 | **Operation**            | **Description**                                      |
 |-------------------------|------------------------------------------------------|
 | `reverse`               | Reverses the sequence.                               |
@@ -98,35 +95,31 @@ print(result)
 | `reverse_complement`    | Returns the reverse complement.                      |
 | `transcribe`            | Transcribes DNA to RNA.                              |
 
-</p>
-
----
+</div>
 
 <p align="center">RNA Sequences</p>
 
-<p align="center">
-
+<div align="center">
+  
 | **Operation**            | **Description**                                      |
 |-------------------------|------------------------------------------------------|
 | `reverse`               | Reverses the sequence.                               |
 | `complement`            | Returns the complementary sequence.                  |
 | `reverse_complement`    | Returns the reverse complement.                      |
 
-</p>
-
----
+</div>
 
 <p align="center">Protein Sequences</p>
 
-<p align="center">
-
+<div align="center">
+  
 | **Operation**            | **Description**                                      |
 |-------------------------|------------------------------------------------------|
 | `reverse`               | Reverses the sequence.                               |
 | `amino_acid_composition` | Returns the amino acid composition.                 |
 | `hydrophobicity_score`  | Calculates the hydrophobicity score.                 |
 
-</p>
+</div>
 
 Command-Line Usage
 
@@ -134,9 +127,9 @@ Command-Line Usage
 python main_script.py run dna ATGC CGTGA reverse_complement
 ```
 
-----------------------------------------------------------------
 
-2. <p align="center" style="color:#007acc;">FASTQ Filtering (filter)</p>
+
+<h3 align="center"> 2. FASTQ Filtering (filter) </h3>
 
 The filter subcommand in main_script.py filters FASTQ sequences
 based on GC content, sequence length, and average quality.
@@ -151,16 +144,16 @@ python main_script.py filter data/input.fastq filtered_output.fastq \
 If the output_fastq argument is omitted, the tool returns a dictionary of
 filtered records instead of writing to a file.
 
-----------------------------------------------------------------
 
-3. <p align="center" style="color:#007acc;">bio_files_processor.py</p>
+
+<h3 align="center"> 3. bio_files_processor.py </h3>
 
 The bio_files_processor.py script provides utilities for converting and
 processing bioinformatics file formats such as FASTA, BLAST, and GBK.
 
 Key Functions
 
-<p align="center">
+<div align="center">
   
 | Command                          | Description                                      |
 |-----------------------------------|--------------------------------------------------|
@@ -168,7 +161,7 @@ Key Functions
 | **`parse_blast_output`**              | Extracts descriptions from BLAST output.        |
 | **`select_genes_from_gbk_to_fasta`**  | Extracts genes from GBK and writes to FASTA.    |
 
-</p>
+</div>
 
 #### Usage Examples:
 
@@ -190,7 +183,8 @@ python bio_files_processor.py select_genes input.gbk geneA geneB --n_before 1 --
 
 ----------------------------------------------------------------
 
-Project Structure
+## <h3 align="center"> Project Structure </h3>
+
 ```bash
 bioinf-utils/
 ├── README.md
@@ -206,7 +200,7 @@ bioinf-utils/
 
 ----------------------------------------------------------------
 
-Contributing
+## <h3 align="center"> Contributing </h3>
 
 Contributions are welcome! Please fork this repository and submit a pull
 request for any improvements or bug fixes.
