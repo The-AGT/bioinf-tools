@@ -3,7 +3,6 @@
 [![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://github.com/The-AGT/bioinf-utils)
 [![Flake8 Compliance](https://img.shields.io/badge/flake8-compliant-brightgreen.svg)](https://flake8.pycqa.org)
 [![Python Version](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://www.python.org/)
-[![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 
 ---
 <p align="center">
@@ -120,32 +119,11 @@ processing bioinformatics file formats such as FASTA, BLAST, and GBK.
 
 Key Functions
 
-	a.	convert_multiline_fasta_to_oneline
-Converts a FASTA file with multiline sequences into one with single-line
-sequences.
-Usage:
-
-	```bash
-	python bio_files_processor.py convert_fasta input.fasta --output_fasta output.fasta
-	```
-
-	b.	parse_blast_output
-Parses a BLAST output file and extracts descriptions of the best matches.
-Usage:
-
-	```bash
-	python bio_files_processor.py parse_blast input_blast.txt output_descriptions.txt
-	```
-
-	c.	select_genes_from_gbk_to_fasta
-Extracts protein sequences from a GBK file for specified genes and their
-neighbors, and writes them to a FASTA file.
-Usage:
-
-	```bash
-	python bio_files_processor.py select_genes input.gbk geneA geneB \
-	--n_before 1 --n_after 1 --output_fasta output.fasta
-	```
+| Command | Description | Usage |
+|---------|------------|-------|
+| `convert_multiline_fasta_to_oneline` | Converts multiline FASTA sequences to single-line. | `python bio_files_processor.py convert_fasta input.fasta --output_fasta output.fasta` |
+| `parse_blast_output` | Extracts descriptions from BLAST output. | `python bio_files_processor.py parse_blast input_blast.txt output_descriptions.txt` |
+| `select_genes_from_gbk_to_fasta` | Extracts genes from GBK and writes to FASTA. | `python bio_files_processor.py select_genes input.gbk geneA geneB --n_before 1 --n_after 1 --output_fasta output.fasta` |
 
 4. filter_fastq (Legacy)
 
