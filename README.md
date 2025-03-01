@@ -1,14 +1,14 @@
-# Bioinformatics Utilities
+# <span style="color:#0056b3;">Bioinformatics Utilities</span>
 
 [![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://github.com/The-AGT/bioinf-utils)
 [![Flake8 Compliance](https://img.shields.io/badge/flake8-compliant-brightgreen.svg)](https://flake8.pycqa.org)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Python Version](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://www.python.org/)
 
 ---
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/The-AGT/bioinf-tools/bioinf_tools_v2/utils/screenshots/cover_image.png" alt="Bioinformatics Utilities" width="600">
+  <img src="https://via.placeholder.com/600x200?text=Bioinformatics+Utilities" 
+       alt="Bioinformatics Utilities" width="600">
 </p>
 
 ---
@@ -19,14 +19,14 @@
 bioinformatics workflows. It provides utilities for:
 
 - **DNA/RNA Sequence Processing:**  
-  Transcription, complementarity, reverse, and GC content calculation.
+  Transcription, complementarity, reversal, and GC content calculation.
 - **FASTQ Filtering:**  
   Filter FASTQ files based on GC content, sequence length, and quality.
 - **Bioinformatics File Processing:**  
-  Convert and process FASTA, BLAST, and GBK file formats.
+  Conversion and processing of FASTA, BLAST, and GBK file formats.
 
 Leveraging industry-standard libraries such as Biopython, this toolkit  
-ensures reliability and performance for research and production environments.
+ensures reliability and performance for both research and production environments.
 
 ---
 
@@ -51,36 +51,45 @@ ensures reliability and performance for research and production environments.
 
 ```bash
 git clone https://github.com/The-AGT/bioinf-utils.git
+```
 
 Navigate to the Project Directory
 
+```bash
 cd bioinf-utils
+```
 
 Create a Virtual Environment (Recommended)
 
+```bash
 python -m venv venv
-source venv/bin/activate   # Windows: venv\Scripts\activate
+source venv/bin/activate   # For Windows: venv\Scripts\activate
+```
 
 Install Dependencies
 
+```bash
 pip install -r requirements.txt
+```
 
 Usage
 
 1. run_dna_rna_tools
 
-The run_dna_rna_tools function (in main_script.py) allows you to
-perform operations on DNA/RNA sequences such as transcription, reversal,
-complementarity, and GC content calculation.
+The run_dna_rna_tools function (located in main_script.py)
+allows you to perform operations on DNA/RNA sequences such as transcription,
+reversal, complementarity, and GC content calculation.
 
 Example Usage
 
+```python
 from main_script import run_dna_rna_tools
 
 sequences = ["ATGC", "CGTGA"]
 procedure = "reverse_complement"
 result = run_dna_rna_tools(*sequences, procedure)
 print(result)
+```
 
 Available Procedures
 	•	transcribe
@@ -96,53 +105,62 @@ Calculates the GC content.
 
 2. FASTQ Filtering
 
-FASTQ filtering is now fully integrated into main_script.py via the
+FASTQ filtering functionality is integrated into main_script.py via the
 filter subcommand. This tool filters FASTQ sequences based on GC content,
 sequence length, and quality.
 
 Command-Line Usage
 
+```bash
 python main_script.py filter data/input.fastq filtered_output.fastq \
 --gc_bounds 40 60 --length_bounds 50 1000 --quality_threshold 30
+```
 
-If the output_fastq argument is omitted, the tool returns a dictionary
-of filtered records instead of writing to a file.
+If the output_fastq argument is omitted, the tool returns a dictionary of
+filtered records instead of writing to a file.
 
 3. bio_files_processor.py
 
-The bio_files_processor.py script offers utilities for converting and
+The bio_files_processor.py script provides utilities for converting and
 processing bioinformatics file formats such as FASTA, BLAST, and GBK.
 
 Key Functions
 	1.	convert_multiline_fasta_to_oneline
-Converts FASTA files with multiline sequences to a one-line format.
+Converts a FASTA file with multiline sequences into one with single-line
+sequences.
 Usage:
 
+```bash
 python bio_files_processor.py convert_fasta input.fasta --output_fasta output.fasta
-
+```
 
 	2.	parse_blast_output
-Extracts descriptions of the best matches from a BLAST output file.
+Parses a BLAST output file and extracts descriptions of the best matches.
 Usage:
 
 python bio_files_processor.py parse_blast input_blast.txt output_descriptions.txt
 
 
 	3.	select_genes_from_gbk_to_fasta
-Extracts protein sequences from a GBK file for target genes and their
+Extracts protein sequences from a GBK file for specified genes and their
 neighbors, and writes them to a FASTA file.
 Usage:
 
+```bash
 python bio_files_processor.py select_genes input.gbk geneA geneB \
 --n_before 1 --n_after 1 --output_fasta output.fasta
+```
 
 4. filter_fastq (Legacy)
 
-The legacy filter_fastq function supports filtering on a dictionary of
-FASTQ records (key: name, value: tuple(sequence, quality, extra_info)).
+For users preferring a dictionary of sequences over a FASTQ file, the
+legacy filter_fastq function is available. It operates on a dictionary
+where each key is a sequence name and the value is a tuple
+(sequence, quality, extra_info).
 
 Example Usage
 
+```python
 from main_script import filter_fastq
 
 seqs = {
@@ -155,6 +173,7 @@ quality_threshold = 30
 
 filtered_seqs = filter_fastq(seqs, gc_bounds, length_bounds, quality_threshold)
 print(filtered_seqs)
+```
 
 Project Structure
 
@@ -172,21 +191,20 @@ bioinf-utils/
 Screenshots
 
 <p align="center">
-  <img src="https://github.com/The-AGT/bioinf-tools/blob/bioinf_tools_v2/utils/screenshots/HW4_flake8.png" 
+  <img src="https://via.placeholder.com/600x200?text=Flake8+Test+Results" 
        alt="Flake8 Test Results" width="600">
 </p>
 
 
 Contributing
 
-Contributions are welcome! Please fork this repository and submit
-a pull request for any improvements or bug fixes.
+Contributions are welcome! Please fork this repository and submit a pull
+request for any improvements or bug fixes.
 
-For major changes, please open an issue first to discuss what you would like to change.
+For major changes, please open an issue first to discuss what you would like
+to change.
 
-License
+	“In the middle of difficulty lies opportunity.”
+— Albert Einstein
 
-This project is licensed under the MIT License.
-
-	“Innovation distinguishes between a leader and a follower.”
-— Steve Jobs
+Enjoy using Bioinformatics Utilities and feel free to contribute to the project!
