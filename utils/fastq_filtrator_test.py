@@ -1,6 +1,11 @@
+import sys
+import os
 import pytest
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+
 from main_script import filter_fastq
-from utils.example_data import EXAMPLE_FASTQ 
+from utils.example_data import EXAMPLE_FASTQ
 
 def select_reads(ids):
     return {id_: EXAMPLE_FASTQ[id_] for id_ in ids}
