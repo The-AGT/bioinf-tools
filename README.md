@@ -1,167 +1,219 @@
-# Bioinformatics Utilities
+[![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://github.com/The-AGT/bioinf-utils)
+[![Flake8 Compliance](https://img.shields.io/badge/flake8-compliant-brightgreen.svg)](https://flake8.pycqa.org)
+[![Python Version](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://www.python.org/)
 
-## Description
+----------------------------------------------------------------
+<p align="center">
+  <img src="https://img.shields.io/badge/Bioinformatics-Utilities-blue?style=for-the-badge&logo=dna" alt="Bioinformatics Utilities">
+</p>
 
-This project provides a set of utilities for working with DNA and RNA sequences, filtering FASTQ files, and processing various bioinformatics data formats such as FASTA, BLAST, and GBK files. The main functionalities of the project include:
+----------------------------------------------------------------
 
-- **run_dna_rna_tools** — a set of tools for working with DNA/RNA sequences (transcription, complementarity, reverse, and other operations).
-- **filter_fastq_file** — a utility for filtering FASTQ sequences based on GC content, sequence length, and quality. Functions for reading and writing FASTQ files are moved into a separate module (`utils/fastq_module.py`).
-- **bio_files_processor.py** — a set of utilities for converting and processing bioinformatics file formats (FASTA, BLAST, and GBK).
+## <p align="center"> Overview </p>
 
-## Installation
+**Bioinformatics Utilities** is a **powerful and modular toolkit** for modern bioinformatics workflows.  
+It includes utilities for **DNA/RNA sequence analysis, FASTQ filtering, and bioinformatics file processing**.
 
-1. Clone the repository:
-    ```bash
-    git clone https://github.com/The-AGT/bioinf-utils.git
-    ```
+<h4 align="center">━━━━━━━━━ Features ━━━━━━━━━</h4>
 
-2. Navigate to the project directory:
-    ```bash
-    cd bioinf-utils
-    ```
+ **DNA/RNA Sequence Processing** – transcription, complementarity, reversal, and GC content.  
+ **FASTQ Filtering** – filter FASTQ sequences by GC content, length, and quality.  
+ **File Format Support** – FASTA, BLAST, and GBK file processing.  
+ **Optimized Performance** – uses Biopython for high-speed computations.  
 
-3. Create a virtual environment (recommended):
-    ```bash
-    python -m venv venv
-    source venv/bin/activate  # For Windows: venv\Scripts\activate
-    ```
+----------------------------------------------------------------
 
-4. Install dependencies (if any):
-    ```bash
-    pip install -r requirements.txt
-    ```
+## <p align="center"> Table of Contents </p>
 
-## Usage
+- [Installation](##Installation)
+- [Usage](#usage)
+  - [1. Sequence Operations (run)](#1-sequence-operations-run)
+  - [2. FASTQ Filtering (filter)](#2-fastq-filtering-filter)
+  - [3. bio_files_processor.py](#3-bio_files_processorpy)
+- [Project Structure](#project-structure)
+- [Contributing](#Contributing)
 
-### 1. run_dna_rna_tools
+----------------------------------------------------------------
 
-The `run_dna_rna_tools` function, located in `main_script.py`, allows you to perform operations on DNA and RNA sequences, such as transcription, reverse, complementarity, and GC content calculation.
+## <h3 align="center"> Installation </h3>
 
-#### Example usage:
+### Clone the Repository
+
+```bash
+git clone https://github.com/The-AGT/bioinf-utils.git
+```
+
+Navigate to the Project Directory
+
+```bash
+cd bioinf-utils
+```
+
+Create a Virtual Environment (Recommended)
+
+```bash
+python -m venv venv
+source venv/bin/activate   # For Windows: venv\Scripts\activate
+```
+
+Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+----------------------------------------------------------------
+
+## <p align="center"> Usage </p>
+
+<h3 align="center"> 1. Sequence Operations </h3>
+
+The run subcommand in main_script.py enables you to perform various
+operations on DNA/RNA sequences such as transcription, reversal, complementarity,
+and GC content calculation.
+
+Example Usage (Python API)
+
 ```python
-from main_script import run_dna_rna_tools
+from main_script import run_sequence_operation
 
 sequences = ["ATGC", "CGTGA"]
-procedure = "reverse_complement"
-result = run_dna_rna_tools(*sequences, procedure)
+operation = "reverse_complement"
+result = run_sequence_operation("dna", sequences, operation)
 print(result)
 ```
 
-#### Available procedures:
-- `transcribe` — transcribes DNA into RNA (replaces T with U).
-- `reverse` — reverses the sequence.
-- `complement` — returns the complementary sequence.
-- `reverse_complement` — returns the reverse complement of the sequence.
-- `gc_content` — calculates the GC content of the sequence.
+<h4 align="center">━━━━━━━━━ Available Operations ━━━━━━━━━</h4>
 
-### 2. filter_fastq_file
+<p align="center">DNA Sequences</p>
 
-The `filter_fastq_file` function is used to filter FASTQ sequences based on GC content, sequence length, and average quality. This function works directly with FASTQ files, reading them, filtering the sequences on-the-fly, and writing the filtered sequences to an output FASTQ file. The functions for reading and writing FASTQ files have been moved into `utils/fastq_module.py`.
+<div align="center">
+  
+| **Operation**            | **Description**                                      |
+|-------------------------|------------------------------------------------------|
+| `reverse`               | Reverses the sequence.                               |
+| `complement`            | Returns the complementary sequence.                  |
+| `reverse_complement`    | Returns the reverse complement.                      |
+| `transcribe`            | Transcribes DNA to RNA.                              |
 
-#### Arguments:
-- **input_fastq** — path to the input FASTQ file.
-- **output_fastq** — name of the output FASTQ file.
-- **gc_bounds** — GC content bounds for filtering (default is (0, 100)).
-- **length_bounds** — sequence length bounds for filtering (default is (0, 2**32)).
-- **quality_threshold** — threshold for the average quality score (default is 0).
+</div>
 
-#### Example usage:
-```python
-from utils.fastq_module import filter_fastq_file
+<p align="center">RNA Sequences</p>
 
-input_fastq = "data/input.fastq"
-output_fastq = "filtered_output.fastq"
-gc_bounds = (40, 60)
-length_bounds = (50, 1000)
-quality_threshold = 30
+<div align="center">
+  
+| **Operation**            | **Description**                                      |
+|-------------------------|------------------------------------------------------|
+| `reverse`               | Reverses the sequence.                               |
+| `complement`            | Returns the complementary sequence.                  |
+| `reverse_complement`    | Returns the reverse complement.                      |
 
-filter_fastq_file(input_fastq, output_fastq, gc_bounds, length_bounds, quality_threshold)
+</div>
+
+<p align="center">Protein Sequences</p>
+
+<div align="center">
+  
+| **Operation**            | **Description**                                      |
+|-------------------------|------------------------------------------------------|
+| `reverse`               | Reverses the sequence.                               |
+| `amino_acid_composition` | Returns the amino acid composition.                 |
+| `hydrophobicity_score`  | Calculates the hydrophobicity score.                 |
+
+</div>
+
+Command-Line Usage
+
+```bash
+python main_script.py run dna ATGC CGTGA reverse_complement
 ```
 
-### 3. bio_files_processor.py
 
-The `bio_files_processor.py` script provides utilities for converting and processing bioinformatics file formats, including FASTA, BLAST, and GBK files.
 
-#### Functions in `bio_files_processor.py`:
+<h3 align="center"> 2. FASTQ Filtering (filter) </h3>
 
-1. **convert_multiline_fasta_to_oneline**: Converts a FASTA file with multiline sequences into a file where each sequence is written on a single line.
+The filter subcommand in main_script.py filters FASTQ sequences
+based on GC content, sequence length, and average quality.
 
-   **Arguments**:
-   - **input_fasta** — path to the input FASTA file.
-   - **output_fasta** — path to the output FASTA file (optional).
+Command-Line Usage
 
-   **Example usage**:
-   ```bash
-   python bio_files_processor.py convert_fasta input.fasta --output_fasta output.fasta
-   ```
-
-2. **parse_blast_output**: Parses a BLAST output file and extracts the descriptions of the best matches.
-
-   **Arguments**:
-   - **input_file** — path to the BLAST output file (in txt format).
-   - **output_file** — path to the output file where descriptions will be saved.
-
-   **Example usage**:
-   ```bash
-   python bio_files_processor.py parse_blast input_blast.txt output_descriptions.txt
-   ```
-
-3. **select_genes_from_gbk_to_fasta**: Extracts protein sequences from a GBK file for specified genes and their neighbors, and saves them to a FASTA file.
-
-   **Arguments**:
-   - **input_gbk** — path to the input GBK file.
-   - **genes** — list of target genes.
-   - **n_before** — number of genes to include before the target gene.
-   - **n_after** — number of genes to include after the target gene.
-   - **output_fasta** — name of the output FASTA file.
-
-   **Example usage**:
-   ```bash
-   python bio_files_processor.py select_genes input.gbk geneA geneB --n_before 1 --n_after 1 --output_fasta output.fasta
-   ```
-
-### 4. filter_fastq (legacy)
-
-If you want to use the function with a dictionary of sequences rather than a FASTQ file, you can refer to the older `filter_fastq` function. This function works with a dictionary format for FASTQ sequences (name, (sequence, quality)).
-
-#### Arguments:
-- **seqs** — a dictionary with FASTQ sequences (key: name, value: tuple of sequence and quality).
-- **gc_bounds** — GC content bounds for filtering (default is (0, 100)).
-- **length_bounds** — sequence length bounds for filtering (default is (0, 2**32)).
-- **quality_threshold** — threshold for the average quality score (default is 0).
-
-#### Example usage:
-```python
-from main_script import filter_fastq
-
-seqs = {
-    "seq1": ("ATGC", "IIII"),
-    "seq2": ("CGTGA", "HHHHH")
-}
-gc_bounds = (40, 60)
-length_bounds = (4, 10)
-quality_threshold = 30
-
-filtered_seqs = filter_fastq(seqs, gc_bounds, length_bounds, quality_threshold)
-print(filtered_seqs)
+```bash
+python main_script.py filter data/input.fastq filtered_output.fastq \
+--gc_bounds 40 60 --length_bounds 50 1000 --quality_threshold 30
 ```
 
-## Project Structure
+If the output_fastq argument is omitted, the tool returns a dictionary of
+filtered records instead of writing to a file.
 
+
+
+<h3 align="center"> 3. bio_files_processor.py </h3>
+
+The bio_files_processor.py script provides utilities for converting and
+processing bioinformatics file formats such as FASTA, BLAST, and GBK.
+
+Key Functions
+
+<div align="center">
+  
+| Command                          | Description                                      |
+|-----------------------------------|--------------------------------------------------|
+| **`convert_multiline_fasta_to_oneline`** | Converts multiline FASTA sequences to single-line. |
+| **`parse_blast_output`**              | Extracts descriptions from BLAST output.        |
+| **`select_genes_from_gbk_to_fasta`**  | Extracts genes from GBK and writes to FASTA.    |
+
+</div>
+
+#### Usage Examples:
+
+#####  `convert_multiline_fasta_to_oneline`
+
+```bash
+python bio_files_processor.py convert_fasta input.fasta --output_fasta output.fasta
 ```
+#####  parse_blast_output
+
+```bash
+python bio_files_processor.py parse_blast input_blast.txt output_descriptions.txt
+```
+#####  select_genes_from_gbk_to_fasta
+
+```bash
+python bio_files_processor.py select_genes input.gbk geneA geneB --n_before 1 --n_after 1 --output_fasta output.fasta
+```
+
+----------------------------------------------------------------
+
+## <h3 align="center"> Project Structure </h3>
+
+```bash
 bioinf-utils/
-├─ README.md
-├─ main_script.py
-├─ utils/
-│  ├── __init__.py
-│  ├── fastq_module.py
-│  ├── dna_rna_tools_test.py
-│  ├── fastq_filtrator_test.py
-│  └── example_data.py
-├─ bio_files_processor.py
+├── README.md
+├── main_script.py
+├── bio_files_processor.py
+├── requirements.txt
+└── utils/
+    ├── __init__.py
+    ├── dna_rna_tools_test.py
+    ├── fastq_filtrator_test.py
+    └── example_data.py
 ```
 
-## Screenshots
-Here is a screenshot of test results:
-![HW4 Flake8 Screenshot](https://github.com/The-AGT/bioinf-tools/blob/bioinf_tools_v2/utils/screenshots/HW4_flake8.png)
-```
+----------------------------------------------------------------
+
+## <h3 align="center"> Contributing </h3>
+
+Contributions are welcome! Please fork this repository and submit a pull
+request for any improvements or bug fixes.
+
+For major changes, please open an issue first to discuss what you would like
+to change.
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Quote-Einstein-blue?style=flat-square">
+</p>
+
+<p align="center"><em>“In the middle of difficulty lies opportunity.”</em></p>
+
+<p align="center">— <strong>Albert Einstein</strong></p>
+
+Enjoy using Bioinformatics Utilities and feel free to contribute to the project!
